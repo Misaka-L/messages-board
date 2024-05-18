@@ -11,7 +11,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col w-4/6 mx-auto pt-24">
+  <div class="flex flex-col md:w-4/6 mx-auto pt-24">
     <n-text class="text-center mb-8 select-none">
       <n-h1>Misaka-L's Message Boards</n-h1>
     </n-text>
