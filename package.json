@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "misaka-l-messages-board",
+  "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
