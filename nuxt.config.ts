@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@bg-dev/nuxt-naiveui",
     "nuxt-time",
-    "nuxt-icon-tw",
+    "nuxt-icon",
     "@nuxtjs/tailwindcss",
   ],
   tailwindcss: {
