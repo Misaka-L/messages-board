@@ -41,7 +41,7 @@ async function submit() {
       message.success('留言成功')
 
       formContent.value = {
-        author: 'guest',
+        author: formContent.value.author,
         content: ''
       }
 
