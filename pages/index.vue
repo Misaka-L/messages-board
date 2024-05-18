@@ -27,7 +27,7 @@ onMounted(() => {
           <template #avatar>
             <n-avatar>
               <n-icon>
-                <Icon name="mdi-cat" />
+                <Icon name="mdi:cat" />
               </n-icon>
             </n-avatar>
           </template>
