@@ -20,9 +20,12 @@ onMounted(() => {
     </n-card>
     <n-list hoverable>
       <n-list-item v-for="message in messages">
-        <n-thing :description="message.content">
+        <n-thing>
           <template #header>
             <p class="font-bold">{{ message.author }}</p>
+          </template>
+          <template #description>
+            <p class="text-wrap whitespace-pre-wrap">{{ message.content }}</p>
           </template>
           <template #avatar>
             <n-avatar>
