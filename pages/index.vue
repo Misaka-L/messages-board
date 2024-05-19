@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Message } from '~/types/message';
+import type { MessageWithId } from '~/types/message';
 
-const { data: messages } = await useLazyFetch<Message[]>('/api/messages')
+const { data: messages } = await useLazyFetch<MessageWithId[]>('/api/messages')
 
 onMounted(() => {
   new EventSource('/api/messages/eventSource').addEventListener('message', (event) => {
@@ -20,7 +20,7 @@ onMounted(() => {
     </n-card>
     <n-list hoverable>
       <n-list-item v-for="message in messages">
-        <n-thing>
+        <n-thing :id="message.id">
           <template #header>
             <p class="font-bold">{{ message.author }}</p>
           </template>

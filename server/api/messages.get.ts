@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const query = await getValidatedQuery(event, (query) =>
     z
       .object({
-        limit: z.coerce.number().int().default(100),
+        limit: z.coerce.number().int().optional(),
         // offset: z.coerce.number().int().default(0),
       })
       .parse(query)

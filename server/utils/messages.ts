@@ -1,14 +1,24 @@
-import { Message } from "~/types/message"
+import { Message, MessageWithId } from "~/types/message"
 import { v4 as uuidv4 } from "uuid"
 
-export async function listMessages(limit: number = 100, offset: number = 0) {
+export async function listMessages(
+  limit: number | undefined = undefined,
+  offset: number = 0
+) {
   const kv = await useKv()
 
-  const messageIterator = await kv.list({ prefix: ["messages"] }, { limit })
-  const messages: Message[] = []
+  const messageIterator = await kv.list<Message>(
+    { prefix: ["messages"] },
+    { limit }
+  )
+  const messages: MessageWithId[] = []
 
-  for await (const message of messageIterator)
-    messages.push(message.value as Message)
+  for await (const message of messageIterator) {
+    const messageValue = message.value
+    const id = message.key[1].toString()
+
+    messages.push({ id, ...messageValue })
+  }
 
   return messages.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
 }

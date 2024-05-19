@@ -3,3 +3,7 @@ export interface Message {
   content: string
   createdAt: Date
 }
+
+export interface MessageWithId extends Message {
+  id: string
+}
