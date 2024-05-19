@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "nuxt-time",
     "nuxt-icon",
     "@nuxtjs/tailwindcss",
+    "@vite-pwa/nuxt",
   ],
   tailwindcss: {
     exposeConfig: {
@@ -14,5 +15,18 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: "",
+  },
+  pwa: {
+    manifest: {
+      name: "Misaka 留言板",
+      description: "一个普通的留言板 By Misaka-L",
+      background_color: "#63e2b7",
+      orientation: "any",
+      start_url: "/",
+      display: "standalone",
+    },
+    devOptions: {
+      enabled: true,
+    },
   },
 })

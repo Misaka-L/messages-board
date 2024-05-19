@@ -8,13 +8,19 @@ const uiTheme = computed(() => ((colorMode.preference === 'system' && osIsDark) 
 
 <template>
   <Title>Misaka-L's Messages Board</Title>
+  <NuxtPwaAssets />
   <n-config-provider :theme="uiTheme" inline-theme-disabled>
-    <n-message-provider>
-      <n-layout position="absolute">
-        <n-layout position="absolute" :native-scrollbar="false" content-style="padding: 24px;">
-          <nuxt-page />
+    <n-notification-provider>
+      <n-message-provider>
+        <client-only>
+          <prompt-for-update />
+        </client-only>
+        <n-layout position="absolute">
+          <n-layout position="absolute" :native-scrollbar="false" content-style="padding: 24px;">
+            <nuxt-page />
+          </n-layout>
         </n-layout>
-      </n-layout>
-    </n-message-provider>
+      </n-message-provider>
+    </n-notification-provider>
   </n-config-provider>
 </template>
