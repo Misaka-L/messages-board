@@ -1,3 +1,5 @@
+import Icons from "./public/icons/icons.json"
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -20,13 +22,16 @@ export default defineNuxtConfig({
     manifest: {
       name: "Misaka 留言板",
       description: "一个普通的留言板 By Misaka-L",
-      background_color: "#63e2b7",
+      theme_color: "#63e2b7",
+      background_color: "black",
       orientation: "any",
       start_url: "/",
       display: "standalone",
+      id: "xyz.misakal.msg",
+      ...Icons,
     },
     devOptions: {
-      enabled: true,
+      enabled: false,
     },
   },
 })
