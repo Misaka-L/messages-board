@@ -25,7 +25,8 @@ onMounted(() => {
             <p class="font-bold">{{ message.author }}</p>
           </template>
           <template #description>
-            <p class="text-wrap whitespace-pre-wrap">{{ message.content }}</p>
+            <markdown-preview class="prose dark:prose-invert prose-sm prose-code:text-base max-w-none"
+              :value="message.content" />
           </template>
           <template #avatar>
             <n-avatar>
